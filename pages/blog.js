@@ -8,6 +8,7 @@ export default function Blog(props) {
       {props.posts.map((post, index) => {
         return (
           <div key={index}>
+            {index}
             <h3>
               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
             </h3>
@@ -22,6 +23,7 @@ export default function Blog(props) {
 
 export async function getStaticProps() {
   const response = await fetch("https://learnwebcode.github.io/json-example/posts.json")
+                                
   const data = await response.json()
 
   return {
